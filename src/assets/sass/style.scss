@@ -1,0 +1,25 @@
+/* Default styles */
+@font-face {
+    font-family: 'Curlz MT';
+    src: url('../fonts/CurlzMT.woff2') format('woff2'),
+    url('../fonts/CurlzMT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main {
+    background: #acfafa;
+    padding: 20px;
+}
+h2 {
+    text-align: center;
+    color: darkred;
+    background: url("../img/4.jpg");
+    padding: 15px;
+    font-family: 'Curlz MT', serif;
+}
