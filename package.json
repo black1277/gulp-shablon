@@ -3,6 +3,18 @@
     "version": "1.0.0",
     "description": "project using gulp4",
     "author": "black1277",
+    "license": "ISC",
+    "scripts": {
+        "start": "gulp",
+        "build": "gulp build"
+    },
+    "keywords": [
+        "gulp",
+        "shablon",
+        "toolkit",
+        "automate",
+        "workflow"
+    ],
     "devDependencies": {
         "browser-sync": "^2.26.3",
         "del": "^4.1.0",
