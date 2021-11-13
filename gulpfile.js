@@ -28,7 +28,7 @@ var path = {
     },
     src: {
         html: "src/*.html",
-        js: "src/assets/js/*.js",
+        js: "src/assets/js/**/*.js",
         css: "src/assets/sass/style.scss",
         images: "src/assets/img/**/*.{jpg,png,svg,gif,ico}",
         fonts: "src/assets/fonts/**/*.{eot,svg,ttf,woff,woff2}"
@@ -60,8 +60,16 @@ function browserSyncReload(done) {
 }
 
 function html() {
+    panini.refresh();
     return src(path.src.html, { base: "src/" })
         .pipe(plumber())
+        .pipe(panini({
+          root: 'src/',
+          layouts: 'src/template/layouts/',
+          partials: 'src/template/partials/',
+          helpers: 'src/template/helpers/',
+          data: 'src/template/data/'
+        }))
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream());
 }
