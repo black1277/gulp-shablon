@@ -6,6 +6,7 @@
  - sass
  - минификация
  - горячая перезагрузка при разработке
+ - шаблоны для HTML - [panini]
 
 ```javascript
 npm install
@@ -18,3 +19,7 @@ gulp
 ```javascript
 gulp build
 ```
+Удобно для верстки, для сборки бандлов скриптов лучше подходит [webpack5]-шаблон
+
+[panini]: https://github.com/foundation/panini
+[webpack5]: https://github.com/black1277/webpack5-shablon
