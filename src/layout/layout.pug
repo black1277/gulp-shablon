@@ -1,0 +1,27 @@
+block variables
+    - var title = 'Это мой сайт'
+    - var head1 = 'Это заголовок по умолчанию'
+    - var content = 'Это контент страницы по умолчанию'
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title #{title}
+        link(rel="stylesheet" href="/assets/css/style.css")
+        link(rel="shortcut icon" href="favicon.ico")
+        block scripts
+            script(src='/assets/js/jquery.js')
+    body
+        block header
+            include ../parts/header.pug
+        include ../parts/navigate.pug
+        block content
+            main
+                h1 #{head1}
+                div.content
+                    p #{content}
+        block footer
+            include ../parts/footer.pug

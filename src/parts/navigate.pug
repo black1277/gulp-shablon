@@ -1,0 +1,5 @@
+nav.menu
+    ul.menu__list
+        each value, key in {'/': 'Главная', 'about.html': 'О нас', 'contact.html': 'Контакты'}
+            li
+                a(href=key)= value

@@ -1,0 +1,18 @@
+extends ./layout/layout.pug
+
+block variables
+    - var title = 'Главная'
+    - var head1 = 'Отличный заголовок'
+    - var content = 'Основной контент главной страницы'
+
+block scripts
+    script(src='/assets/js/app.js')
+
+block append header
+    div text content
+
+block prepend content
+    include ./parts/content.pug
+
+block prepend footer
+    div еще футер

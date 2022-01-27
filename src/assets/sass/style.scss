@@ -1,4 +1,4 @@
-/* Default styles */
+
 @font-face {
     font-family: 'Curlz MT';
     src: url('../fonts/CurlzMT.woff2') format('woff2'),
@@ -27,6 +27,11 @@ html, body {
     width: 100%;
     text-align: center;
     background: #acfafa;
+}
+h1 {
+    text-align: center;
+    font-size: 2.7rem;
+    color: darkblue;
 }
 h2 {
     text-align: center;

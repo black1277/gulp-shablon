@@ -1,0 +1,12 @@
+extends ./layout/layout.pug
+
+block variables
+    - var title = 'Контакты'
+    - var head1 = 'Супер информация!'
+    - var content = 'Контактная информация: адрес, почта, телефон'
+
+block append scripts
+    script(src='/assets/js/app.js')
+
+block prepend content
+    h1 Новое
