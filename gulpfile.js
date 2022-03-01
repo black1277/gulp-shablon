@@ -15,8 +15,9 @@ const {src, dest} = require('gulp'),
   del = require('del'),
   pug = require('gulp-pug'),
   browsersync = require('browser-sync').create(),
-  babel = require('gulp-babel')
-
+  babel = require('gulp-babel'),
+  sourcemaps = require('gulp-sourcemaps'),
+  rollup = require('gulp-rollup')
 
 /* Paths */
 const path = {
@@ -44,12 +45,11 @@ const path = {
   clean: './dist'
 }
 
-
 /* Tasks */
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: './dist/'
+      baseDir: './dist'
     },
     port: 3000
   })
@@ -75,12 +75,14 @@ function favicon() {
 function css() {
   return src(path.src.css, {base: 'src/assets/sass/'})
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
       Browserslist: ['last 8 versions'],
       cascade: true
     }))
     .pipe(cssbeautify())
+    .pipe(sourcemaps.write())
     .pipe(dest(path.build.css))
     .pipe(cssnano({
       zindex: false,
@@ -100,10 +102,17 @@ function css() {
 function js() {
   return src(path.src.js, {base: './src/assets/js/'})
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(rigger())
-    .pipe(babel({
-      presets: ['@babel/env']
+    .pipe(rollup({
+      input: './src/assets/js/app.js',
+      output: {
+        file: 'app.js',
+        format: 'umd'
+      }
     }))
+    .pipe(babel({}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.build.js))
     .pipe(uglify())
     .pipe(rename({
@@ -138,7 +147,6 @@ function watchFiles() {
 
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, favicon))
 const watch = gulp.parallel(build, watchFiles, browserSync)
-
 
 /* Exports Tasks */
 exports.html = html

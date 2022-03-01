@@ -1,4 +1,6 @@
-
+@import "variables";
+@import "mixins";
+@import "./blocks/block";
 @font-face {
     font-family: 'Curlz MT';
     src: url('../fonts/CurlzMT.woff2') format('woff2'),
@@ -31,12 +33,12 @@ html, body {
 h1 {
     text-align: center;
     font-size: 2.7rem;
-    color: darkblue;
+    color: $header-h1-color;
 }
 h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: darkred;
+    color: $header-h2-color;
     background: url("../img/4.jpg");
     padding: 15px;
     font-family: 'Curlz MT', serif;

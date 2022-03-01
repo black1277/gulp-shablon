@@ -15,8 +15,10 @@
         "automate",
         "workflow"
     ],
+    "browserslist": "> 0.25%",
     "devDependencies": {
         "@babel/core": "^7.16.12",
+        "@babel/plugin-transform-runtime": "^7.16.10",
         "@babel/preset-env": "^7.16.11",
         "browser-sync": "^2.26.3",
         "del": "^4.1.0",
@@ -30,10 +32,14 @@
         "gulp-pug": "^5.0.0",
         "gulp-rename": "^1.4.0",
         "gulp-rigger": "^0.5.8",
+        "gulp-rollup": "^2.17.0",
         "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^3.0.0",
         "gulp-strip-css-comments": "^2.0.0",
         "gulp-uglify": "^3.0.2",
-        "panini": "^1.6.3",
         "pug": "^3.0.2"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.16.7"
     }
 }
